@@ -1,0 +1,16 @@
+{
+  "baseline": {
+    "best_params": {
+      "svm__C": 0.5,
+      "svm__gamma": 0.001
+    },
+    "clean_macro_f1": 0.9799819837854069
+  },
+  "fusion_mds": {
+    "best_params": {
+      "svm__C": 0.5,
+      "svm__gamma": 0.001
+    },
+    "clean_macro_f1": 0.9866613311991462
+  }
+}
