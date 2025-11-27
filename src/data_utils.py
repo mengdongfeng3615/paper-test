@@ -29,28 +29,33 @@ def _label_from_sample(sample_id: str) -> int:
 
 
 def load_segments(cfg: DatasetConfig) -> List[Segment]:
-    """Load, preprocess, and window all wav files into labeled segments."""
+    """Load, preprocess, window, and optionally subsample segments per sample."""
     segments: List[Segment] = []
+    rng = np.random.default_rng(cfg.random_seed)
     for sample_id, fname in SAMPLE_TO_FILE.items():
         label = _label_from_sample(sample_id)
         path = RAW_DIR / fname
         raw = audio_utils.load_audio(str(path), cfg)
         proc = audio_utils.preprocess_signal(raw, cfg)
-        for seg in audio_utils.segment_signal(proc, cfg):
+        segs = audio_utils.segment_signal(proc, cfg)
+        if cfg.max_segments_per_sample and len(segs) > cfg.max_segments_per_sample:
+            idx = rng.choice(len(segs), size=cfg.max_segments_per_sample, replace=False)
+            segs = [segs[i] for i in idx]
+        for seg in segs:
             segments.append(Segment(sample_id=sample_id, label=label, data=seg))
     return segments
 
 
-def split_by_sample(cfg: DatasetConfig) -> Dict[str, Sequence[str]]:
-    """Stratified split at sample-id level (train/val/test)."""
-    rng = np.random.default_rng(cfg.random_seed)
+def split_by_sample(cfg: DatasetConfig, seed: int) -> Dict[str, Sequence[str]]:
+    """Random 3/1/1 per class split, varies by seed."""
+    rng = np.random.default_rng(seed)
     splits = {"train": [], "val": [], "test": []}
     buckets: Dict[int, List[str]] = {
         0: SAMPLE_ORDER[0:5],
         1: SAMPLE_ORDER[5:10],
         2: SAMPLE_ORDER[10:15],
     }
-    for label, sample_ids in buckets.items():
+    for sample_ids in buckets.values():
         ids = list(sample_ids)
         rng.shuffle(ids)
         splits["train"].extend(ids[:3])

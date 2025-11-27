@@ -1,16 +1,82 @@
-{
-  "baseline": {
-    "best_params": {
-      "svm__C": 0.5,
-      "svm__gamma": 0.001
-    },
-    "clean_macro_f1": 0.9799819837854069
+[
+  {
+    "model": "baseline",
+    "snr": "0.5 dB",
+    "accuracy_mean": 0.6388888888888888,
+    "accuracy_std": 0.0707106781186547,
+    "macro_f1_mean": 0.6156297845974534,
+    "macro_f1_std": 0.0905842749486913
   },
-  "fusion_mds": {
-    "best_params": {
-      "svm__C": 0.5,
-      "svm__gamma": 0.001
-    },
-    "clean_macro_f1": 0.9866613311991462
+  {
+    "model": "baseline",
+    "snr": "10.0 dB",
+    "accuracy_mean": 0.9777777777777777,
+    "accuracy_std": 0.0,
+    "macro_f1_mean": 0.9777530589543938,
+    "macro_f1_std": 0.0
+  },
+  {
+    "model": "baseline",
+    "snr": "5.0 dB",
+    "accuracy_mean": 0.9055555555555556,
+    "accuracy_std": 0.007856742013183834,
+    "macro_f1_mean": 0.904820130802561,
+    "macro_f1_std": 0.008894424920585462
+  },
+  {
+    "model": "baseline",
+    "snr": "8.0 dB",
+    "accuracy_mean": 0.9055555555555556,
+    "accuracy_std": 0.007856742013183834,
+    "macro_f1_mean": 0.9052576833999917,
+    "macro_f1_std": 0.00791613285951194
+  },
+  {
+    "model": "baseline",
+    "snr": "clean",
+    "accuracy_mean": 0.9666666666666667,
+    "accuracy_std": 0.015713484026367668,
+    "macro_f1_mean": 0.9666295884315906,
+    "macro_f1_std": 0.01573096287400557
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "0.5 dB",
+    "accuracy_mean": 0.8722222222222222,
+    "accuracy_std": 0.13356461422412563,
+    "macro_f1_mean": 0.8637114775369553,
+    "macro_f1_std": 0.14558752657551152
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "10.0 dB",
+    "accuracy_mean": 0.9944444444444445,
+    "accuracy_std": 0.007856742013183834,
+    "macro_f1_mean": 0.9944429008057794,
+    "macro_f1_std": 0.007858925047919322
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "5.0 dB",
+    "accuracy_mean": 0.9777777777777779,
+    "accuracy_std": 0.031426968052735454,
+    "macro_f1_mean": 0.9776785714285714,
+    "macro_f1_std": 0.03156726701725651
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "8.0 dB",
+    "accuracy_mean": 0.9888888888888889,
+    "accuracy_std": 0.015713484026367786,
+    "macro_f1_mean": 0.9888888888888889,
+    "macro_f1_std": 0.015713484026367668
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "clean",
+    "accuracy_mean": 0.9944444444444445,
+    "accuracy_std": 0.007856742013183834,
+    "macro_f1_mean": 0.9944429008057794,
+    "macro_f1_std": 0.007858925047919322
   }
-}
+]
