@@ -37,7 +37,7 @@ def _spectral_stats(x: np.ndarray, sr: int):
         ratios.append(float(np.sum(power[mask]) / total))
     return centroid, bandwidth, rolloff, flatness, ratios
 
-
+#时域
 def _basic_features(x: np.ndarray, sr: int) -> List[float]:
     rms = float(np.sqrt(np.mean(x ** 2)))
     zcr = _zero_crossing_rate(x)
@@ -51,9 +51,11 @@ def _aggregate(feats: np.ndarray) -> np.ndarray:
     return np.concatenate([feats.mean(axis=0), feats.std(axis=0)])
 
 
-def _frame_window() -> SlidingWindow:
-    """Fixed 25 ms window / 10 ms hop for cepstral features."""
-    return SlidingWindow(0.025, 0.010)
+def _frame_window(cfg: DatasetConfig) -> SlidingWindow:
+    """Use window <= segment length to avoid negative framing."""
+    win_len = min(0.025, cfg.segment_seconds)
+    win_hop = min(0.01, cfg.hop_seconds)
+    return SlidingWindow(win_len, win_hop)
 
 
 def _mfcc_features(x: np.ndarray, sr: int, cfg: DatasetConfig) -> np.ndarray:
@@ -62,7 +64,7 @@ def _mfcc_features(x: np.ndarray, sr: int, cfg: DatasetConfig) -> np.ndarray:
         fs=sr,
         num_ceps=cfg.n_mfcc,
         pre_emph=False,
-        window=_frame_window(),
+        window=_frame_window(cfg),
         nfilts=26,
         nfft=1024,
         low_freq=0,
@@ -77,7 +79,7 @@ def _pncc_features(x: np.ndarray, sr: int, cfg: DatasetConfig) -> np.ndarray:
         fs=sr,
         num_ceps=cfg.n_pncc,
         pre_emph=False,
-        window=_frame_window(),
+        window=_frame_window(cfg),
         nfilts=26,
         nfft=1024,
         low_freq=0,
@@ -92,7 +94,7 @@ def _rasta_features(x: np.ndarray, sr: int, cfg: DatasetConfig) -> np.ndarray:
         fs=sr,
         order=cfg.n_rasta,
         pre_emph=False,
-        window=_frame_window(),
+        window=_frame_window(cfg),
         nfilts=26,
         nfft=1024,
         low_freq=0,

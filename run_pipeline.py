@@ -1,5 +1,5 @@
 ﻿"""
-Entry point to run preprocessing, feature extraction, training, and evaluation.
+Entry point to run preprocessing, feature extraction, training, and evaluation with multi-round random splits.
 """
 import json
 import numpy as np
@@ -9,11 +9,12 @@ from src.config import CLASS_NAMES, DatasetConfig, OUTPUT_DIR, ensure_output_dir
 from src.data_utils import Segment, load_segments, split_by_sample
 from src.mds_utils import SAMPLE_ORDER, load_subjective_matrix
 from src.modeling import evaluate_model, train_model
-from src.plots import plot_confusion, plot_mds, plot_snr_curve
+from src.plots import plot_confusion, plot_mds
+
+N_ROUNDS = 2
 
 
 def sample_label(sample_id: str) -> int:
-    """Convert Sample id to coarse label index."""
     idx = int(sample_id.replace("Sample", ""))
     if idx <= 5:
         return 0
@@ -22,8 +23,40 @@ def sample_label(sample_id: str) -> int:
     return 2
 
 
+def run_round(round_idx: int, cfg: DatasetConfig, segments, mds_map):
+    seed = cfg.random_seed + round_idx
+    splits = split_by_sample(cfg, seed=seed)
+    train_ids = set(splits["train"] + splits["val"])
+    test_ids = set(splits["test"])
+
+    train_segments = [seg for seg in segments if seg.sample_id in train_ids]
+    test_segments = [seg for seg in segments if seg.sample_id in test_ids]
+
+    metrics_rows = []
+    for include_mds, name in [(False, "baseline"), (True, "fusion_mds")]:
+        model, params = train_model(train_segments, cfg, mds_map, include_mds)
+        eval_results = evaluate_model(model, test_segments, cfg, mds_map, include_mds)
+        for item in eval_results:
+            metrics_rows.append(
+                {
+                    "round": round_idx,
+                    "model": name,
+                    "snr": "clean" if np.isinf(item["snr"]) else f"{item['snr']} dB",
+                    "accuracy": item["accuracy"],
+                    "macro_f1": item["macro_f1"],
+                }
+            )
+        # 保存每轮的混淆矩阵（仅 clean）
+        clean_res = next(r for r in eval_results if np.isinf(r["snr"]))
+        plot_confusion(
+            clean_res["confusion"],
+            OUTPUT_DIR / f"confusion_{name}_round{round_idx}.png",
+            title=f"{name} (clean, round {round_idx})",
+        )
+    return metrics_rows
+
+
 def main() -> None:
-    """Execute full pipeline and write metrics/plots to outputs directory."""
     cfg = DatasetConfig()
     ensure_output_dirs()
 
@@ -42,46 +75,25 @@ def main() -> None:
     plot_mds(mds_coords, sample_labels, OUTPUT_DIR / "fig_mds.png")
 
     segments = load_segments(cfg)
-    splits = split_by_sample(cfg)
-    train_ids = set(splits["train"] + splits["val"])
-    test_ids = set(splits["test"])
 
-    train_segments = [seg for seg in segments if seg.sample_id in train_ids]
-    test_segments = [seg for seg in segments if seg.sample_id in test_ids]
+    all_rows = []
+    for r in range(N_ROUNDS):
+        all_rows.extend(run_round(r, cfg, segments, mds_map))
 
-    metrics_rows = []
-    summaries = {}
+    metrics_df = pd.DataFrame(all_rows)
+    metrics_df.to_csv(OUTPUT_DIR / "metrics_rounds.csv", index=False)
 
-    for include_mds, name in [(False, "baseline"), (True, "fusion_mds")]:
-        model, params = train_model(train_segments, cfg, mds_map, include_mds)
-        eval_results = evaluate_model(model, test_segments, cfg, mds_map, include_mds)
-        summaries[name] = {
-            "best_params": params,
-            "clean_macro_f1": next(r for r in eval_results if np.isinf(r["snr"]))[
-                "macro_f1"
-            ],
-        }
-        for item in eval_results:
-            metrics_rows.append(
-                {
-                    "model": name,
-                    "snr": "clean" if np.isinf(item["snr"]) else f"{item['snr']} dB",
-                    "accuracy": item["accuracy"],
-                    "macro_f1": item["macro_f1"],
-                }
-            )
-        clean_res = next(r for r in eval_results if np.isinf(r["snr"]))
-        plot_confusion(
-            clean_res["confusion"],
-            OUTPUT_DIR / f"confusion_{name}.png",
-            title=f"{name} (clean)",
-        )
-        if include_mds:
-            plot_snr_curve(eval_results, OUTPUT_DIR / "snr_curve_fusion.png")
+    # 汇总平均指标
+    summary = metrics_df.groupby(["model", "snr"]).agg(
+        accuracy_mean=("accuracy", "mean"),
+        accuracy_std=("accuracy", "std"),
+        macro_f1_mean=("macro_f1", "mean"),
+        macro_f1_std=("macro_f1", "std"),
+    ).reset_index()
+    summary.to_csv(OUTPUT_DIR / "metrics_summary.csv", index=False)
 
-    pd.DataFrame(metrics_rows).to_csv(OUTPUT_DIR / "metrics.csv", index=False)
     with open(OUTPUT_DIR / "summary.json", "w", encoding="utf-8") as f:
-        json.dump(summaries, f, indent=2)
+        json.dump(summary.to_dict(orient="records"), f, indent=2)
 
     print("Wrote outputs to", OUTPUT_DIR)
 

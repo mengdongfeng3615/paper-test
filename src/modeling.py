@@ -24,7 +24,6 @@ def _feature_matrix(
     noise_levels: Iterable[float],
     seed_offset: int,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """Construct feature matrix with optional noise augmentation and MDS."""
     feats: List[np.ndarray] = []
     labels: List[int] = []
     groups: List[str] = []
@@ -50,13 +49,14 @@ def train_model(
     mds_map: Dict[str, np.ndarray],
     include_mds: bool,
 ) -> Tuple[Pipeline, Dict[str, float]]:
-    """Grid-search RBF-SVM with group-aware CV and return best estimator."""
+    # training使用多档噪声增强（clean + 10/8/5 dB）
+    train_noise = (float("inf"), 10.0, 8.0, 5.0)
     X_train, y_train, groups = _feature_matrix(
         train_segments,
         cfg,
         mds_map,
         include_mds,
-        noise_levels=(float("inf"), 10.0),
+        noise_levels=train_noise,
         seed_offset=0,
     )
     pipe = Pipeline(
@@ -69,8 +69,8 @@ def train_model(
         ]
     )
     param_grid = {
-        "svm__C": [0.5, 1.0, 2.0, 4.0],
-        "svm__gamma": ["scale", "auto", 0.01, 0.001],
+        "svm__C": [0.5, 1.0, 2.0],
+        "svm__gamma": ["scale", 0.01, 0.001],
     }
     n_splits = max(2, min(3, len(np.unique(groups))))
     cv = GroupKFold(n_splits=n_splits)
@@ -94,7 +94,6 @@ def evaluate_model(
     mds_map: Dict[str, np.ndarray],
     include_mds: bool,
 ) -> List[Dict[str, object]]:
-    """Evaluate across SNR levels, returning metrics and confusion matrices."""
     results: List[Dict[str, object]] = []
     for snr_db in cfg.snr_eval_levels:
         X_test, y_test, _ = _feature_matrix(

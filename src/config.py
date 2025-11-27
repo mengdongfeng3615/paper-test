@@ -1,7 +1,4 @@
-﻿"""
-Configuration for dataset, paths, and label mappings.
-"""
-import pathlib
+﻿import pathlib
 from dataclasses import dataclass
 from typing import Dict, List
 
@@ -12,10 +9,10 @@ OUTPUT_DIR = BASE_DIR / "outputs"
 
 @dataclass(frozen=True)
 class DatasetConfig:
-    """Centralized hyperparameters for preprocessing and evaluation."""
     sample_rate: int = 40_000
-    segment_seconds: float = 0.1
-    hop_seconds: float = 0.1
+    segment_seconds: float = 0.01  # 10 ms window
+    hop_seconds: float = 0.01      # 10 ms hop
+    max_segments_per_sample: int = 30  # cap to limit compute
     bandpass_low: float = 300.0
     bandpass_high: float = 18_000.0
     notch_freq: float = 50.0
@@ -60,5 +57,4 @@ SAMPLE_TO_FILE: Dict[str, str] = {
 
 
 def ensure_output_dirs() -> None:
-    """Create output directory if missing."""
     OUTPUT_DIR.mkdir(exist_ok=True)
