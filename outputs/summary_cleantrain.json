@@ -1,0 +1,82 @@
+[
+  {
+    "model": "baseline",
+    "snr": "0.5 dB",
+    "accuracy_mean": 0.3333333333333333,
+    "accuracy_std": 0.0,
+    "macro_f1_mean": 0.16666666666666666,
+    "macro_f1_std": 0.0
+  },
+  {
+    "model": "baseline",
+    "snr": "10.0 dB",
+    "accuracy_mean": 0.34444444444444444,
+    "accuracy_std": 0.007856742013183872,
+    "macro_f1_mean": 0.189763411295533,
+    "macro_f1_std": 0.016045935469082655
+  },
+  {
+    "model": "baseline",
+    "snr": "5.0 dB",
+    "accuracy_mean": 0.3333333333333333,
+    "accuracy_std": 0.0,
+    "macro_f1_mean": 0.16666666666666666,
+    "macro_f1_std": 0.0
+  },
+  {
+    "model": "baseline",
+    "snr": "8.0 dB",
+    "accuracy_mean": 0.3377777777777778,
+    "accuracy_std": 0.006085806194501855,
+    "macro_f1_mean": 0.1758290412939369,
+    "macro_f1_std": 0.01254609815917227
+  },
+  {
+    "model": "baseline",
+    "snr": "clean",
+    "accuracy_mean": 0.9511111111111111,
+    "accuracy_std": 0.02557969874049181,
+    "macro_f1_mean": 0.9509100160318619,
+    "macro_f1_std": 0.02578774751940003
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "0.5 dB",
+    "accuracy_mean": 0.3333333333333333,
+    "accuracy_std": 0.0,
+    "macro_f1_mean": 0.16666666666666666,
+    "macro_f1_std": 0.0
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "10.0 dB",
+    "accuracy_mean": 0.37333333333333335,
+    "accuracy_std": 0.03735052514215915,
+    "macro_f1_mean": 0.23812641314361427,
+    "macro_f1_std": 0.062668189980922
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "5.0 dB",
+    "accuracy_mean": 0.3355555555555555,
+    "accuracy_std": 0.004969039949999543,
+    "macro_f1_mean": 0.1716784171295637,
+    "macro_f1_std": 0.010441305095815503
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "8.0 dB",
+    "accuracy_mean": 0.3511111111111111,
+    "accuracy_std": 0.021659542988464366,
+    "macro_f1_mean": 0.20191346298430393,
+    "macro_f1_std": 0.04042773419023573
+  },
+  {
+    "model": "fusion_mds",
+    "snr": "clean",
+    "accuracy_mean": 0.9533333333333334,
+    "accuracy_std": 0.02652741419180739,
+    "macro_f1_mean": 0.9532225072516175,
+    "macro_f1_std": 0.02658293361369073
+  }
+]

@@ -6,9 +6,11 @@ import soundfile as sf
 from scipy import signal
 
 from src.config import DatasetConfig, RAW_DIR, OUTPUT_DIR, SAMPLE_TO_FILE
+from src.font_config import configure_chinese_font
 
-plt.rcParams["font.sans-serif"] = ["SimHei"]
-plt.rcParams["axes.unicode_minus"] = False
+# 配置中文字体，避免乱码
+configure_chinese_font()
+
 def fig_4_2_spectrum_refined() -> None:
     """Refined spectrum comparison using a short segment and subplots."""
     cfg = DatasetConfig()
@@ -57,17 +59,17 @@ def fig_4_2_spectrum_refined() -> None:
     for ax, mag, title in zip(
         axes,
         [mag_raw, mag_bp, mag_pre],
-        ["ԭʼ�ź�", "���˲���+�ݲ���", "Ԥ������"],
+        ["原始信号", "带通滤波+陷波", "预加重"],
     ):
         ax.plot(freq / 1000.0, mag, color="C0", lw=0.8)
         ax.set_xlim(0, 10)
         ax.set_ylim(mag.max() - 80, mag.max() + 5)
-        ax.set_ylabel("���� / dB")
+        ax.set_ylabel("幅度 / dB")
         ax.set_title(title, fontsize=10)
         ax.grid(True, alpha=0.3)
 
-    axes[-1].set_xlabel("Ƶ�� / kHz")
-    fig.suptitle("ͼ 4-2 Ԥ����ǰ�����Ƶ�׶Ա�(0.5 s ����, 0–10 kHz)", fontsize=11)
+    axes[-1].set_xlabel("频率 / kHz")
+    fig.suptitle("图 4-2 预处理前后频谱对比(0.5 s 片段, 0–10 kHz)", fontsize=11)
     fig.tight_layout(rect=[0, 0.03, 1, 0.95])
     fig.savefig(OUTPUT_DIR / "fig_4-2_spectrum_refined.png", dpi=300)
     plt.close(fig)

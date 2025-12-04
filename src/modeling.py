@@ -1,8 +1,10 @@
-﻿"""
+"""
 Model training and evaluation utilities for SVM classifiers with noise augmentation.
 """
+from __future__ import annotations
+
 import numpy as np
-from typing import Dict, Iterable, List, Sequence, Tuple
+from typing import Dict, Iterable, List, Sequence, Tuple, Optional
 
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 from sklearn.model_selection import GridSearchCV, GroupKFold
@@ -23,6 +25,8 @@ def _feature_matrix(
     include_mds: bool,
     noise_levels: Iterable[float],
     seed_offset: int,
+    noise_type: str = "white",
+    factory_noises: Optional[Sequence[np.ndarray]] = None,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     feats: List[np.ndarray] = []
     labels: List[int] = []
@@ -34,7 +38,13 @@ def _feature_matrix(
             seed = cfg.random_seed + seed_offset + int(round(snr_db * 10))
         rng = np.random.default_rng(seed)
         for seg in segments:
-            noisy = add_noise(seg.data, snr_db, rng)
+            noisy = add_noise(
+                seg.data,
+                snr_db,
+                rng,
+                noise_type=noise_type,
+                factory_noises=factory_noises,
+            )
             mds = mds_map.get(seg.sample_id) if include_mds else None
             vec = build_feature_vector(noisy, cfg.sample_rate, cfg, mds)
             feats.append(vec)
@@ -48,9 +58,17 @@ def train_model(
     cfg: DatasetConfig,
     mds_map: Dict[str, np.ndarray],
     include_mds: bool,
+    train_noise_levels: Optional[Iterable[float]] = None,
+    noise_type: str = "white",
+    factory_noises: Optional[Sequence[np.ndarray]] = None,
 ) -> Tuple[Pipeline, Dict[str, float]]:
-    # training使用多档噪声增强（clean + 10/8/5 dB）
-    train_noise = (float("inf"), 10.0, 8.0, 5.0)
+    # Default noise augmentation: clean + 10/8/5 dB; override with train_noise_levels
+    train_noise = tuple(train_noise_levels) if train_noise_levels is not None else (
+        float("inf"),
+        10.0,
+        8.0,
+        5.0,
+    )
     X_train, y_train, groups = _feature_matrix(
         train_segments,
         cfg,
@@ -58,6 +76,8 @@ def train_model(
         include_mds,
         noise_levels=train_noise,
         seed_offset=0,
+        noise_type=noise_type,
+        factory_noises=factory_noises,
     )
     pipe = Pipeline(
         [
@@ -93,6 +113,8 @@ def evaluate_model(
     cfg: DatasetConfig,
     mds_map: Dict[str, np.ndarray],
     include_mds: bool,
+    noise_type: str = "white",
+    factory_noises: Optional[Sequence[np.ndarray]] = None,
 ) -> List[Dict[str, object]]:
     results: List[Dict[str, object]] = []
     for snr_db in cfg.snr_eval_levels:
@@ -103,6 +125,8 @@ def evaluate_model(
             include_mds,
             noise_levels=(snr_db,),
             seed_offset=100,
+            noise_type=noise_type,
+            factory_noises=factory_noises,
         )
         preds = model.predict(X_test)
         acc = accuracy_score(y_test, preds)

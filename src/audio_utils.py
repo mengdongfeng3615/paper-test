@@ -4,7 +4,7 @@ Audio loading, preprocessing, segmentation, and noise injection utilities.
 import numpy as np
 import soundfile as sf
 from scipy import signal
-from typing import Iterable, List
+from typing import Iterable, List, Optional, Sequence
 
 from .config import DatasetConfig
 
@@ -57,13 +57,67 @@ def segment_signal(
     return segments
 
 
-def add_noise(x: np.ndarray, snr_db: float, rng: np.random.Generator) -> np.ndarray:
-    """Add white noise at target SNR; inf means no noise."""
+def _pink_noise(n: int, rng: np.random.Generator) -> np.ndarray:
+    """Approximate 1/f pink noise via frequency-domain shaping."""
+    white = rng.standard_normal(n)
+    freqs = np.fft.rfftfreq(n)
+    spectrum = np.fft.rfft(white)
+    # avoid divide-by-zero on DC
+    weights = np.ones_like(freqs)
+    nz = freqs > 0
+    weights[nz] = 1.0 / np.sqrt(freqs[nz])
+    pink = np.fft.irfft(spectrum * weights, n=n)
+    # normalize to unit power
+    pow_pink = np.mean(pink ** 2)
+    if pow_pink > 0:
+        pink /= np.sqrt(pow_pink)
+    return pink
+
+
+def _sample_factory_noise(noise_bank: Sequence[np.ndarray], length: int, rng: np.random.Generator) -> np.ndarray:
+    """Pick a random factory noise clip and slice/loop to match length."""
+    if not noise_bank:
+        return rng.standard_normal(length)
+    clip = noise_bank[rng.integers(0, len(noise_bank))]
+    if len(clip) >= length:
+        start = rng.integers(0, len(clip) - length + 1)
+        return clip[start:start + length]
+    # if shorter, tile then trim
+    reps = (length // len(clip)) + 1
+    tiled = np.tile(clip, reps)
+    return tiled[:length]
+
+
+def add_noise(
+    x: np.ndarray,
+    snr_db: float,
+    rng: np.random.Generator,
+    noise_type: str = "white",
+    factory_noises: Optional[Sequence[np.ndarray]] = None,
+) -> np.ndarray:
+    """
+    Add noise at target SNR. noise_type supports:
+    - "white": Gaussian white noise (default)
+    - "pink": 1/f colored noise
+    - "factory": mix-in from provided factory_noises bank
+    """
     if np.isinf(snr_db):
         return x.copy()
     power = np.mean(x ** 2)
     if power == 0:
         return x.copy()
     noise_power = power / (10 ** (snr_db / 10))
-    noise = rng.normal(scale=np.sqrt(noise_power), size=x.shape)
+
+    if noise_type == "pink":
+        noise = _pink_noise(len(x), rng)
+    elif noise_type == "factory" and factory_noises is not None:
+        noise = _sample_factory_noise(factory_noises, len(x), rng)
+        # normalize factory noise to unit power
+        npow = np.mean(noise ** 2)
+        if npow > 0:
+            noise = noise / np.sqrt(npow)
+    else:
+        noise = rng.normal(size=x.shape)
+
+    noise = noise * np.sqrt(noise_power)
     return x + noise

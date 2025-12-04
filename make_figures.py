@@ -1,18 +1,18 @@
-﻿"""Generate chapter 4 figures and tables for the welding sound project."""
+﻿"""Generate Chapter 4 figures and tables for the welding sound project (UTF-8, 中文正常显示)."""
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 import soundfile as sf
+from scipy import signal
 
 from src.config import DatasetConfig, RAW_DIR, OUTPUT_DIR, SAMPLE_TO_FILE, CLASS_NAMES
 from src import audio_utils
 from src import features as feat_mod
 from src.mds_utils import load_subjective_matrix, SAMPLE_ORDER
+from src.font_config import configure_chinese_font
 
-# 配置中文字体，避免乱码
-plt.rcParams["font.sans-serif"] = ["SimHei"]
-plt.rcParams["axes.unicode_minus"] = False
+configure_chinese_font()
 
 
 def _ensure_dirs() -> None:
@@ -20,7 +20,7 @@ def _ensure_dirs() -> None:
 
 
 def fig_4_1_flowchart() -> None:
-    """Signal preprocessing flowchart."""
+    """声信号预处理流程图。"""
     _ensure_dirs()
     fig, ax = plt.subplots(figsize=(8, 2.5))
     ax.axis("off")
@@ -62,7 +62,7 @@ def fig_4_1_flowchart() -> None:
 
 
 def fig_4_2_spectrum() -> None:
-    """Compare spectra before/after preprocessing (whole signal, 0-20 kHz)."""
+    """预处理前后频谱对比（全段 0–20 kHz）。"""
     _ensure_dirs()
     cfg = DatasetConfig()
     sample_id = "Sample1"
@@ -71,14 +71,10 @@ def fig_4_2_spectrum() -> None:
     raw, sr = sf.read(wav_path)
     raw = raw.astype(np.float64)
 
-    # reconstruct intermediate stages
-    x = raw.copy()
-    if np.max(np.abs(x)) > 0:
-        norm = x / np.max(np.abs(x))
+    if np.max(np.abs(raw)) > 0:
+        norm = raw / np.max(np.abs(raw))
     else:
-        norm = x
-
-    from scipy import signal
+        norm = raw
 
     sos = signal.butter(
         4,
@@ -90,7 +86,6 @@ def fig_4_2_spectrum() -> None:
     bp = signal.sosfilt(sos, norm)
     b, a = signal.iirnotch(cfg.notch_freq, 30, fs=cfg.sample_rate)
     bp_notch = signal.filtfilt(b, a, bp)
-
     pre = signal.lfilter([1.0, -cfg.pre_emphasis], [1], bp_notch)
 
     def mag_spectrum(sig: np.ndarray):
@@ -121,7 +116,7 @@ def fig_4_2_spectrum() -> None:
 
 
 def fig_4_2_spectrum_refined() -> None:
-    """Refined spectrum comparison: 0.5 s segment, 0-10 kHz, three subplots."""
+    """预处理前后频谱对比（取中间 0.5 s，0–10 kHz，三子图）。"""
     _ensure_dirs()
     cfg = DatasetConfig()
     sample_id = "Sample1"
@@ -129,8 +124,6 @@ def fig_4_2_spectrum_refined() -> None:
 
     raw, sr = sf.read(wav_path)
     raw = raw.astype(np.float64)
-
-    # use middle 0.5 s segment to avoid transients
     center = len(raw) // 2
     half = int(0.25 * sr)
     seg = raw[center - half : center + half]
@@ -139,8 +132,6 @@ def fig_4_2_spectrum_refined() -> None:
         norm = seg / np.max(np.abs(seg))
     else:
         norm = seg
-
-    from scipy import signal
 
     sos = signal.butter(
         4,
@@ -178,7 +169,6 @@ def fig_4_2_spectrum_refined() -> None:
         ax.set_ylabel("幅度 / dB")
         ax.set_title(title, fontsize=10)
         ax.grid(True, alpha=0.3)
-
     axes[-1].set_xlabel("频率 / kHz")
     fig.suptitle("图 4-2(b) 预处理前后典型频谱对比（0.5 s 片段，0–10 kHz）", fontsize=11)
     fig.tight_layout(rect=[0, 0.03, 1, 0.95])
@@ -187,7 +177,7 @@ def fig_4_2_spectrum_refined() -> None:
 
 
 def tables_4_1_4_2() -> None:
-    """Write markdown tables describing features and configs."""
+    """输出表 4-1 和表 4-2 的 Markdown 文本。"""
     _ensure_dirs()
     path = OUTPUT_DIR / "tables_ch4.md"
     lines = []
@@ -215,7 +205,7 @@ def tables_4_1_4_2() -> None:
 
 
 def fig_4_3_feature_scatter() -> None:
-    """Scatter of RMS vs spectral centroid colored by class."""
+    """RMS vs 频谱质心散点图。"""
     _ensure_dirs()
     cfg = DatasetConfig()
     from src.data_utils import load_segments
@@ -252,9 +242,9 @@ def fig_4_3_feature_scatter() -> None:
 
 
 def fig_4_4_mds_isomap() -> None:
-    """2D MDS and Isomap embeddings colored by class."""
+    """2D MDS（默认）与 Isomap（可选）嵌入。"""
     _ensure_dirs()
-    avg, mds_coords, iso_coords = load_subjective_matrix()
+    avg, mds_coords, iso_coords = load_subjective_matrix(with_isomap=True)
 
     cls = []
     for sid in SAMPLE_ORDER:

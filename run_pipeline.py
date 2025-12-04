@@ -11,8 +11,7 @@ from src.mds_utils import SAMPLE_ORDER, load_subjective_matrix
 from src.modeling import evaluate_model, train_model
 from src.plots import plot_confusion, plot_mds
 
-N_ROUNDS = 2
-
+N_ROUNDS = 5
 
 def sample_label(sample_id: str) -> int:
     idx = int(sample_id.replace("Sample", ""))
@@ -60,7 +59,8 @@ def main() -> None:
     cfg = DatasetConfig()
     ensure_output_dirs()
 
-    diss, mds_coords, iso_coords = load_subjective_matrix()
+    # 默认仅计算 MDS 坐标，不计算 Isomap
+    diss, mds_coords, _ = load_subjective_matrix(with_isomap=False)
     sample_labels = [sample_label(sid) for sid in SAMPLE_ORDER]
     mds_map = {sid: mds_coords[i] for i, sid in enumerate(SAMPLE_ORDER)}
 

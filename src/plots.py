@@ -7,7 +7,10 @@ from pathlib import Path
 from typing import Dict, List, Sequence
 
 from .config import CLASS_NAMES
+from .font_config import configure_chinese_font
 
+# 配置中文字体
+configure_chinese_font()
 
 COLORS = {0: "#1f77b4", 1: "#2ca02c", 2: "#d62728"}
 
