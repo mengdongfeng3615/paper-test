@@ -1,0 +1,241 @@
+config,model,noise_type,snr,accuracy,macro_f1,round
+alpha8_svr_strong,baseline,white,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_svr_strong,baseline,white,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha8_svr_strong,baseline,white,8.0 dB,0.8133333333333334,0.8065900383141762,0
+alpha8_svr_strong,baseline,white,5.0 dB,0.84,0.8400621118012422,0
+alpha8_svr_strong,baseline,white,0.5 dB,0.72,0.7130271022680751,0
+alpha8_svr_strong,baseline,pink,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_svr_strong,baseline,pink,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha8_svr_strong,baseline,pink,8.0 dB,0.84,0.8391353035688202,0
+alpha8_svr_strong,baseline,pink,5.0 dB,0.7733333333333333,0.7668413457887141,0
+alpha8_svr_strong,baseline,pink,0.5 dB,0.6,0.5865497993157568,0
+alpha8_svr_strong,baseline,factory,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_svr_strong,baseline,factory,10.0 dB,0.8533333333333334,0.8504913076341648,0
+alpha8_svr_strong,baseline,factory,8.0 dB,0.8666666666666667,0.8636671504596034,0
+alpha8_svr_strong,baseline,factory,5.0 dB,0.7466666666666667,0.7411764705882353,0
+alpha8_svr_strong,baseline,factory,0.5 dB,0.8,0.7989304812834225,0
+alpha8_svr_strong,fusion_pred_mds,white,clean,0.8,0.7802197802197802,0
+alpha8_svr_strong,fusion_pred_mds,white,10.0 dB,0.8266666666666667,0.8231890246572943,0
+alpha8_svr_strong,fusion_pred_mds,white,8.0 dB,0.8133333333333334,0.8065900383141762,0
+alpha8_svr_strong,fusion_pred_mds,white,5.0 dB,0.84,0.8400621118012422,0
+alpha8_svr_strong,fusion_pred_mds,white,0.5 dB,0.72,0.7152192847212079,0
+alpha8_svr_strong,fusion_pred_mds,pink,clean,0.8,0.7802197802197802,0
+alpha8_svr_strong,fusion_pred_mds,pink,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha8_svr_strong,fusion_pred_mds,pink,8.0 dB,0.8533333333333334,0.8530901722391083,0
+alpha8_svr_strong,fusion_pred_mds,pink,5.0 dB,0.7733333333333333,0.7668413457887141,0
+alpha8_svr_strong,fusion_pred_mds,pink,0.5 dB,0.6,0.5865497993157568,0
+alpha8_svr_strong,fusion_pred_mds,factory,clean,0.8,0.7802197802197802,0
+alpha8_svr_strong,fusion_pred_mds,factory,10.0 dB,0.8533333333333334,0.8504913076341648,0
+alpha8_svr_strong,fusion_pred_mds,factory,8.0 dB,0.8266666666666667,0.8195970695970697,0
+alpha8_svr_strong,fusion_pred_mds,factory,5.0 dB,0.7466666666666667,0.7411764705882353,0
+alpha8_svr_strong,fusion_pred_mds,factory,0.5 dB,0.8,0.7989304812834225,0
+alpha8_svr_strong,baseline,white,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_svr_strong,baseline,white,10.0 dB,0.96,0.9604404654943739,1
+alpha8_svr_strong,baseline,white,8.0 dB,0.88,0.8794291049753235,1
+alpha8_svr_strong,baseline,white,5.0 dB,0.8933333333333333,0.8923377492305633,1
+alpha8_svr_strong,baseline,white,0.5 dB,0.7866666666666666,0.7668600946274396,1
+alpha8_svr_strong,baseline,pink,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_svr_strong,baseline,pink,10.0 dB,0.9466666666666667,0.9471480900052329,1
+alpha8_svr_strong,baseline,pink,8.0 dB,0.92,0.9199999999999999,1
+alpha8_svr_strong,baseline,pink,5.0 dB,0.8666666666666667,0.8670852956567243,1
+alpha8_svr_strong,baseline,pink,0.5 dB,0.72,0.711996017919363,1
+alpha8_svr_strong,baseline,factory,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_svr_strong,baseline,factory,10.0 dB,0.96,0.9602561024409764,1
+alpha8_svr_strong,baseline,factory,8.0 dB,0.92,0.9199145299145299,1
+alpha8_svr_strong,baseline,factory,5.0 dB,0.84,0.84,1
+alpha8_svr_strong,baseline,factory,0.5 dB,0.8666666666666667,0.866644202689259,1
+alpha8_svr_strong,fusion_pred_mds,white,clean,0.9066666666666666,0.9070455226115604,1
+alpha8_svr_strong,fusion_pred_mds,white,10.0 dB,0.9733333333333334,0.9735740450026164,1
+alpha8_svr_strong,fusion_pred_mds,white,8.0 dB,0.8666666666666667,0.8654273504273503,1
+alpha8_svr_strong,fusion_pred_mds,white,5.0 dB,0.8933333333333333,0.8923377492305633,1
+alpha8_svr_strong,fusion_pred_mds,white,0.5 dB,0.8,0.7835595776772247,1
+alpha8_svr_strong,fusion_pred_mds,pink,clean,0.9066666666666666,0.9070455226115604,1
+alpha8_svr_strong,fusion_pred_mds,pink,10.0 dB,0.9466666666666667,0.9471480900052329,1
+alpha8_svr_strong,fusion_pred_mds,pink,8.0 dB,0.9333333333333333,0.9338508736828065,1
+alpha8_svr_strong,fusion_pred_mds,pink,5.0 dB,0.8666666666666667,0.8670852956567243,1
+alpha8_svr_strong,fusion_pred_mds,pink,0.5 dB,0.72,0.7104774535809019,1
+alpha8_svr_strong,fusion_pred_mds,factory,clean,0.9066666666666666,0.9070455226115604,1
+alpha8_svr_strong,fusion_pred_mds,factory,10.0 dB,0.96,0.9602561024409764,1
+alpha8_svr_strong,fusion_pred_mds,factory,8.0 dB,0.9333333333333333,0.9335426478283622,1
+alpha8_svr_strong,fusion_pred_mds,factory,5.0 dB,0.84,0.8404961984793916,1
+alpha8_svr_strong,fusion_pred_mds,factory,0.5 dB,0.88,0.8799019607843137,1
+alpha10_svr_strong,baseline,white,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_svr_strong,baseline,white,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha10_svr_strong,baseline,white,8.0 dB,0.8133333333333334,0.8065900383141762,0
+alpha10_svr_strong,baseline,white,5.0 dB,0.84,0.8400621118012422,0
+alpha10_svr_strong,baseline,white,0.5 dB,0.72,0.7130271022680751,0
+alpha10_svr_strong,baseline,pink,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_svr_strong,baseline,pink,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha10_svr_strong,baseline,pink,8.0 dB,0.84,0.8391353035688202,0
+alpha10_svr_strong,baseline,pink,5.0 dB,0.7733333333333333,0.7668413457887141,0
+alpha10_svr_strong,baseline,pink,0.5 dB,0.6,0.5865497993157568,0
+alpha10_svr_strong,baseline,factory,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_svr_strong,baseline,factory,10.0 dB,0.8533333333333334,0.8504913076341648,0
+alpha10_svr_strong,baseline,factory,8.0 dB,0.8666666666666667,0.8636671504596034,0
+alpha10_svr_strong,baseline,factory,5.0 dB,0.7466666666666667,0.7411764705882353,0
+alpha10_svr_strong,baseline,factory,0.5 dB,0.8,0.7989304812834225,0
+alpha10_svr_strong,fusion_pred_mds,white,clean,0.8,0.7802197802197802,0
+alpha10_svr_strong,fusion_pred_mds,white,10.0 dB,0.8266666666666667,0.8231890246572943,0
+alpha10_svr_strong,fusion_pred_mds,white,8.0 dB,0.8133333333333334,0.8065900383141762,0
+alpha10_svr_strong,fusion_pred_mds,white,5.0 dB,0.84,0.8400621118012422,0
+alpha10_svr_strong,fusion_pred_mds,white,0.5 dB,0.72,0.7152192847212079,0
+alpha10_svr_strong,fusion_pred_mds,pink,clean,0.8,0.7802197802197802,0
+alpha10_svr_strong,fusion_pred_mds,pink,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha10_svr_strong,fusion_pred_mds,pink,8.0 dB,0.8533333333333334,0.8530901722391083,0
+alpha10_svr_strong,fusion_pred_mds,pink,5.0 dB,0.7733333333333333,0.7668413457887141,0
+alpha10_svr_strong,fusion_pred_mds,pink,0.5 dB,0.6,0.5865497993157568,0
+alpha10_svr_strong,fusion_pred_mds,factory,clean,0.8,0.7802197802197802,0
+alpha10_svr_strong,fusion_pred_mds,factory,10.0 dB,0.8533333333333334,0.8504913076341648,0
+alpha10_svr_strong,fusion_pred_mds,factory,8.0 dB,0.8266666666666667,0.8195970695970697,0
+alpha10_svr_strong,fusion_pred_mds,factory,5.0 dB,0.7466666666666667,0.7411764705882353,0
+alpha10_svr_strong,fusion_pred_mds,factory,0.5 dB,0.8,0.7989304812834225,0
+alpha10_svr_strong,baseline,white,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_svr_strong,baseline,white,10.0 dB,0.96,0.9604404654943739,1
+alpha10_svr_strong,baseline,white,8.0 dB,0.88,0.8794291049753235,1
+alpha10_svr_strong,baseline,white,5.0 dB,0.8933333333333333,0.8923377492305633,1
+alpha10_svr_strong,baseline,white,0.5 dB,0.7866666666666666,0.7668600946274396,1
+alpha10_svr_strong,baseline,pink,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_svr_strong,baseline,pink,10.0 dB,0.9466666666666667,0.9471480900052329,1
+alpha10_svr_strong,baseline,pink,8.0 dB,0.92,0.9199999999999999,1
+alpha10_svr_strong,baseline,pink,5.0 dB,0.8666666666666667,0.8670852956567243,1
+alpha10_svr_strong,baseline,pink,0.5 dB,0.72,0.711996017919363,1
+alpha10_svr_strong,baseline,factory,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_svr_strong,baseline,factory,10.0 dB,0.96,0.9602561024409764,1
+alpha10_svr_strong,baseline,factory,8.0 dB,0.92,0.9199145299145299,1
+alpha10_svr_strong,baseline,factory,5.0 dB,0.84,0.84,1
+alpha10_svr_strong,baseline,factory,0.5 dB,0.8666666666666667,0.866644202689259,1
+alpha10_svr_strong,fusion_pred_mds,white,clean,0.9066666666666666,0.9070455226115604,1
+alpha10_svr_strong,fusion_pred_mds,white,10.0 dB,0.9733333333333334,0.9735740450026164,1
+alpha10_svr_strong,fusion_pred_mds,white,8.0 dB,0.8666666666666667,0.8654273504273503,1
+alpha10_svr_strong,fusion_pred_mds,white,5.0 dB,0.8933333333333333,0.8923377492305633,1
+alpha10_svr_strong,fusion_pred_mds,white,0.5 dB,0.8,0.7835595776772247,1
+alpha10_svr_strong,fusion_pred_mds,pink,clean,0.9066666666666666,0.9070455226115604,1
+alpha10_svr_strong,fusion_pred_mds,pink,10.0 dB,0.9466666666666667,0.9471480900052329,1
+alpha10_svr_strong,fusion_pred_mds,pink,8.0 dB,0.9333333333333333,0.9338508736828065,1
+alpha10_svr_strong,fusion_pred_mds,pink,5.0 dB,0.8666666666666667,0.8670852956567243,1
+alpha10_svr_strong,fusion_pred_mds,pink,0.5 dB,0.72,0.7104774535809019,1
+alpha10_svr_strong,fusion_pred_mds,factory,clean,0.9066666666666666,0.9070455226115604,1
+alpha10_svr_strong,fusion_pred_mds,factory,10.0 dB,0.96,0.9602561024409764,1
+alpha10_svr_strong,fusion_pred_mds,factory,8.0 dB,0.9333333333333333,0.9335426478283622,1
+alpha10_svr_strong,fusion_pred_mds,factory,5.0 dB,0.84,0.8404961984793916,1
+alpha10_svr_strong,fusion_pred_mds,factory,0.5 dB,0.88,0.8799019607843137,1
+alpha8_mlp128_64,baseline,white,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_mlp128_64,baseline,white,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha8_mlp128_64,baseline,white,8.0 dB,0.8133333333333334,0.8065900383141762,0
+alpha8_mlp128_64,baseline,white,5.0 dB,0.84,0.8400621118012422,0
+alpha8_mlp128_64,baseline,white,0.5 dB,0.72,0.7130271022680751,0
+alpha8_mlp128_64,baseline,pink,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_mlp128_64,baseline,pink,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha8_mlp128_64,baseline,pink,8.0 dB,0.84,0.8391353035688202,0
+alpha8_mlp128_64,baseline,pink,5.0 dB,0.7733333333333333,0.7668413457887141,0
+alpha8_mlp128_64,baseline,pink,0.5 dB,0.6,0.5865497993157568,0
+alpha8_mlp128_64,baseline,factory,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_mlp128_64,baseline,factory,10.0 dB,0.8533333333333334,0.8504913076341648,0
+alpha8_mlp128_64,baseline,factory,8.0 dB,0.8666666666666667,0.8636671504596034,0
+alpha8_mlp128_64,baseline,factory,5.0 dB,0.7466666666666667,0.7411764705882353,0
+alpha8_mlp128_64,baseline,factory,0.5 dB,0.8,0.7989304812834225,0
+alpha8_mlp128_64,fusion_pred_mds,white,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_mlp128_64,fusion_pred_mds,white,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha8_mlp128_64,fusion_pred_mds,white,8.0 dB,0.8133333333333334,0.8065900383141762,0
+alpha8_mlp128_64,fusion_pred_mds,white,5.0 dB,0.84,0.8400621118012422,0
+alpha8_mlp128_64,fusion_pred_mds,white,0.5 dB,0.72,0.7130271022680751,0
+alpha8_mlp128_64,fusion_pred_mds,pink,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_mlp128_64,fusion_pred_mds,pink,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha8_mlp128_64,fusion_pred_mds,pink,8.0 dB,0.8533333333333334,0.8530901722391083,0
+alpha8_mlp128_64,fusion_pred_mds,pink,5.0 dB,0.7733333333333333,0.7668413457887141,0
+alpha8_mlp128_64,fusion_pred_mds,pink,0.5 dB,0.6133333333333333,0.6024521204812359,0
+alpha8_mlp128_64,fusion_pred_mds,factory,clean,0.9066666666666666,0.9057239057239057,0
+alpha8_mlp128_64,fusion_pred_mds,factory,10.0 dB,0.8533333333333334,0.8517837954008166,0
+alpha8_mlp128_64,fusion_pred_mds,factory,8.0 dB,0.8666666666666667,0.8636671504596034,0
+alpha8_mlp128_64,fusion_pred_mds,factory,5.0 dB,0.7333333333333333,0.7286195286195287,0
+alpha8_mlp128_64,fusion_pred_mds,factory,0.5 dB,0.8,0.800726216412491,0
+alpha8_mlp128_64,baseline,white,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_mlp128_64,baseline,white,10.0 dB,0.96,0.9604404654943739,1
+alpha8_mlp128_64,baseline,white,8.0 dB,0.88,0.8794291049753235,1
+alpha8_mlp128_64,baseline,white,5.0 dB,0.8933333333333333,0.8923377492305633,1
+alpha8_mlp128_64,baseline,white,0.5 dB,0.7866666666666666,0.7668600946274396,1
+alpha8_mlp128_64,baseline,pink,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_mlp128_64,baseline,pink,10.0 dB,0.9466666666666667,0.9471480900052329,1
+alpha8_mlp128_64,baseline,pink,8.0 dB,0.92,0.9199999999999999,1
+alpha8_mlp128_64,baseline,pink,5.0 dB,0.8666666666666667,0.8670852956567243,1
+alpha8_mlp128_64,baseline,pink,0.5 dB,0.72,0.711996017919363,1
+alpha8_mlp128_64,baseline,factory,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_mlp128_64,baseline,factory,10.0 dB,0.96,0.9602561024409764,1
+alpha8_mlp128_64,baseline,factory,8.0 dB,0.92,0.9199145299145299,1
+alpha8_mlp128_64,baseline,factory,5.0 dB,0.84,0.84,1
+alpha8_mlp128_64,baseline,factory,0.5 dB,0.8666666666666667,0.866644202689259,1
+alpha8_mlp128_64,fusion_pred_mds,white,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_mlp128_64,fusion_pred_mds,white,10.0 dB,0.96,0.9604404654943739,1
+alpha8_mlp128_64,fusion_pred_mds,white,8.0 dB,0.88,0.8794291049753235,1
+alpha8_mlp128_64,fusion_pred_mds,white,5.0 dB,0.8933333333333333,0.8923377492305633,1
+alpha8_mlp128_64,fusion_pred_mds,white,0.5 dB,0.7866666666666666,0.7668600946274396,1
+alpha8_mlp128_64,fusion_pred_mds,pink,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_mlp128_64,fusion_pred_mds,pink,10.0 dB,0.9466666666666667,0.9471480900052329,1
+alpha8_mlp128_64,fusion_pred_mds,pink,8.0 dB,0.92,0.9199999999999999,1
+alpha8_mlp128_64,fusion_pred_mds,pink,5.0 dB,0.8666666666666667,0.8670852956567243,1
+alpha8_mlp128_64,fusion_pred_mds,pink,0.5 dB,0.72,0.711996017919363,1
+alpha8_mlp128_64,fusion_pred_mds,factory,clean,0.9733333333333334,0.9735740450026164,1
+alpha8_mlp128_64,fusion_pred_mds,factory,10.0 dB,0.96,0.9602561024409764,1
+alpha8_mlp128_64,fusion_pred_mds,factory,8.0 dB,0.92,0.9199145299145299,1
+alpha8_mlp128_64,fusion_pred_mds,factory,5.0 dB,0.84,0.84,1
+alpha8_mlp128_64,fusion_pred_mds,factory,0.5 dB,0.8666666666666667,0.866644202689259,1
+alpha10_mlp128_64,baseline,white,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_mlp128_64,baseline,white,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha10_mlp128_64,baseline,white,8.0 dB,0.8133333333333334,0.8065900383141762,0
+alpha10_mlp128_64,baseline,white,5.0 dB,0.84,0.8400621118012422,0
+alpha10_mlp128_64,baseline,white,0.5 dB,0.72,0.7130271022680751,0
+alpha10_mlp128_64,baseline,pink,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_mlp128_64,baseline,pink,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha10_mlp128_64,baseline,pink,8.0 dB,0.84,0.8391353035688202,0
+alpha10_mlp128_64,baseline,pink,5.0 dB,0.7733333333333333,0.7668413457887141,0
+alpha10_mlp128_64,baseline,pink,0.5 dB,0.6,0.5865497993157568,0
+alpha10_mlp128_64,baseline,factory,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_mlp128_64,baseline,factory,10.0 dB,0.8533333333333334,0.8504913076341648,0
+alpha10_mlp128_64,baseline,factory,8.0 dB,0.8666666666666667,0.8636671504596034,0
+alpha10_mlp128_64,baseline,factory,5.0 dB,0.7466666666666667,0.7411764705882353,0
+alpha10_mlp128_64,baseline,factory,0.5 dB,0.8,0.7989304812834225,0
+alpha10_mlp128_64,fusion_pred_mds,white,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_mlp128_64,fusion_pred_mds,white,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha10_mlp128_64,fusion_pred_mds,white,8.0 dB,0.8133333333333334,0.8065900383141762,0
+alpha10_mlp128_64,fusion_pred_mds,white,5.0 dB,0.84,0.8400621118012422,0
+alpha10_mlp128_64,fusion_pred_mds,white,0.5 dB,0.72,0.7130271022680751,0
+alpha10_mlp128_64,fusion_pred_mds,pink,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_mlp128_64,fusion_pred_mds,pink,10.0 dB,0.8666666666666667,0.8660282953761215,0
+alpha10_mlp128_64,fusion_pred_mds,pink,8.0 dB,0.8533333333333334,0.8530901722391083,0
+alpha10_mlp128_64,fusion_pred_mds,pink,5.0 dB,0.7733333333333333,0.7668413457887141,0
+alpha10_mlp128_64,fusion_pred_mds,pink,0.5 dB,0.6133333333333333,0.6024521204812359,0
+alpha10_mlp128_64,fusion_pred_mds,factory,clean,0.9066666666666666,0.9057239057239057,0
+alpha10_mlp128_64,fusion_pred_mds,factory,10.0 dB,0.8533333333333334,0.8517837954008166,0
+alpha10_mlp128_64,fusion_pred_mds,factory,8.0 dB,0.8666666666666667,0.8636671504596034,0
+alpha10_mlp128_64,fusion_pred_mds,factory,5.0 dB,0.7333333333333333,0.7286195286195287,0
+alpha10_mlp128_64,fusion_pred_mds,factory,0.5 dB,0.8,0.800726216412491,0
+alpha10_mlp128_64,baseline,white,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_mlp128_64,baseline,white,10.0 dB,0.96,0.9604404654943739,1
+alpha10_mlp128_64,baseline,white,8.0 dB,0.88,0.8794291049753235,1
+alpha10_mlp128_64,baseline,white,5.0 dB,0.8933333333333333,0.8923377492305633,1
+alpha10_mlp128_64,baseline,white,0.5 dB,0.7866666666666666,0.7668600946274396,1
+alpha10_mlp128_64,baseline,pink,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_mlp128_64,baseline,pink,10.0 dB,0.9466666666666667,0.9471480900052329,1
+alpha10_mlp128_64,baseline,pink,8.0 dB,0.92,0.9199999999999999,1
+alpha10_mlp128_64,baseline,pink,5.0 dB,0.8666666666666667,0.8670852956567243,1
+alpha10_mlp128_64,baseline,pink,0.5 dB,0.72,0.711996017919363,1
+alpha10_mlp128_64,baseline,factory,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_mlp128_64,baseline,factory,10.0 dB,0.96,0.9602561024409764,1
+alpha10_mlp128_64,baseline,factory,8.0 dB,0.92,0.9199145299145299,1
+alpha10_mlp128_64,baseline,factory,5.0 dB,0.84,0.84,1
+alpha10_mlp128_64,baseline,factory,0.5 dB,0.8666666666666667,0.866644202689259,1
+alpha10_mlp128_64,fusion_pred_mds,white,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_mlp128_64,fusion_pred_mds,white,10.0 dB,0.96,0.9604404654943739,1
+alpha10_mlp128_64,fusion_pred_mds,white,8.0 dB,0.88,0.8794291049753235,1
+alpha10_mlp128_64,fusion_pred_mds,white,5.0 dB,0.8933333333333333,0.8923377492305633,1
+alpha10_mlp128_64,fusion_pred_mds,white,0.5 dB,0.7866666666666666,0.7668600946274396,1
+alpha10_mlp128_64,fusion_pred_mds,pink,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_mlp128_64,fusion_pred_mds,pink,10.0 dB,0.9466666666666667,0.9471480900052329,1
+alpha10_mlp128_64,fusion_pred_mds,pink,8.0 dB,0.92,0.9199999999999999,1
+alpha10_mlp128_64,fusion_pred_mds,pink,5.0 dB,0.8666666666666667,0.8670852956567243,1
+alpha10_mlp128_64,fusion_pred_mds,pink,0.5 dB,0.72,0.711996017919363,1
+alpha10_mlp128_64,fusion_pred_mds,factory,clean,0.9733333333333334,0.9735740450026164,1
+alpha10_mlp128_64,fusion_pred_mds,factory,10.0 dB,0.96,0.9602561024409764,1
+alpha10_mlp128_64,fusion_pred_mds,factory,8.0 dB,0.92,0.9199145299145299,1
+alpha10_mlp128_64,fusion_pred_mds,factory,5.0 dB,0.84,0.84,1
+alpha10_mlp128_64,fusion_pred_mds,factory,0.5 dB,0.8666666666666667,0.866644202689259,1
