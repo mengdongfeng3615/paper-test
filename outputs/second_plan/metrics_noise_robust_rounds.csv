@@ -1,0 +1,19 @@
+noise_type,snr,accuracy,macro_f1,round,model
+white,clean,0.8666666666666667,0.8642533936651584,0,multi_noise_baseline
+white,10.0 dB,0.8,0.7908159392789375,0,multi_noise_baseline
+white,8.0 dB,0.8,0.7908159392789375,0,multi_noise_baseline
+white,5.0 dB,0.7555555555555555,0.7498412698412699,0,multi_noise_baseline
+white,2.0 dB,0.7111111111111111,0.6902728815772295,0,multi_noise_baseline
+white,0.5 dB,0.8,0.798015873015873,0,multi_noise_baseline
+pink,clean,0.8666666666666667,0.8642533936651584,0,multi_noise_baseline
+pink,10.0 dB,0.8222222222222222,0.8110507246376812,0,multi_noise_baseline
+pink,8.0 dB,0.8,0.7949242424242424,0,multi_noise_baseline
+pink,5.0 dB,0.8222222222222222,0.8110507246376812,0,multi_noise_baseline
+pink,2.0 dB,0.6444444444444445,0.6381209781209781,0,multi_noise_baseline
+pink,0.5 dB,0.6888888888888889,0.6929493596160263,0,multi_noise_baseline
+factory,clean,0.8666666666666667,0.8642533936651584,0,multi_noise_baseline
+factory,10.0 dB,0.8666666666666667,0.8650189167662287,0,multi_noise_baseline
+factory,8.0 dB,0.8666666666666667,0.8642533936651584,0,multi_noise_baseline
+factory,5.0 dB,0.8444444444444444,0.8428731762065095,0,multi_noise_baseline
+factory,2.0 dB,0.8,0.7959595959595959,0,multi_noise_baseline
+factory,0.5 dB,0.8222222222222222,0.8155850727387729,0,multi_noise_baseline

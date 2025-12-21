@@ -1,0 +1,164 @@
+[
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "factory",
+    "snr": "0.5 dB",
+    "accuracy_mean": 0.8222222222222222,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8155850727387729,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "factory",
+    "snr": "10.0 dB",
+    "accuracy_mean": 0.8666666666666667,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8650189167662287,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "factory",
+    "snr": "2.0 dB",
+    "accuracy_mean": 0.8,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.7959595959595959,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "factory",
+    "snr": "5.0 dB",
+    "accuracy_mean": 0.8444444444444444,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8428731762065095,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "factory",
+    "snr": "8.0 dB",
+    "accuracy_mean": 0.8666666666666667,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8642533936651584,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "factory",
+    "snr": "clean",
+    "accuracy_mean": 0.8666666666666667,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8642533936651584,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "pink",
+    "snr": "0.5 dB",
+    "accuracy_mean": 0.6888888888888889,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.6929493596160263,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "pink",
+    "snr": "10.0 dB",
+    "accuracy_mean": 0.8222222222222222,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8110507246376812,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "pink",
+    "snr": "2.0 dB",
+    "accuracy_mean": 0.6444444444444445,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.6381209781209781,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "pink",
+    "snr": "5.0 dB",
+    "accuracy_mean": 0.8222222222222222,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8110507246376812,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "pink",
+    "snr": "8.0 dB",
+    "accuracy_mean": 0.8,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.7949242424242424,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "pink",
+    "snr": "clean",
+    "accuracy_mean": 0.8666666666666667,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8642533936651584,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "white",
+    "snr": "0.5 dB",
+    "accuracy_mean": 0.8,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.798015873015873,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "white",
+    "snr": "10.0 dB",
+    "accuracy_mean": 0.8,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.7908159392789375,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "white",
+    "snr": "2.0 dB",
+    "accuracy_mean": 0.7111111111111111,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.6902728815772295,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "white",
+    "snr": "5.0 dB",
+    "accuracy_mean": 0.7555555555555555,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.7498412698412699,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "white",
+    "snr": "8.0 dB",
+    "accuracy_mean": 0.8,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.7908159392789375,
+    "macro_f1_std": NaN
+  },
+  {
+    "model": "multi_noise_baseline",
+    "noise_type": "white",
+    "snr": "clean",
+    "accuracy_mean": 0.8666666666666667,
+    "accuracy_std": NaN,
+    "macro_f1_mean": 0.8642533936651584,
+    "macro_f1_std": NaN
+  }
+]

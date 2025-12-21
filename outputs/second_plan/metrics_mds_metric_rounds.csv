@@ -1,0 +1,6 @@
+round,model,snr,accuracy,macro_f1
+0,mds_metric_kernel,clean,1.0,1.0
+0,mds_metric_kernel,10.0 dB,1.0,1.0
+0,mds_metric_kernel,8.0 dB,1.0,1.0
+0,mds_metric_kernel,5.0 dB,1.0,1.0
+0,mds_metric_kernel,0.5 dB,1.0,1.0
